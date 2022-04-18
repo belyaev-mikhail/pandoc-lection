@@ -59,6 +59,44 @@ void foo(int a) {...}
 
 - **Эта презентация сделана в Pandoc**
 
+# Pandoc Markdown: презентации -- пример из доков
+
+\tiny
+
+```md
+% Habits
+% John Doe
+% March 22, 2005
+
+# In the morning
+
+## Getting up
+
+- Turn off alarm
+- Get out of bed
+
+## Breakfast
+
+- Eat eggs
+- Drink coffee
+
+# In the evening
+
+## Dinner
+
+- Eat spaghetti
+- Drink wine
+
+------------------
+
+![picture of spaghetti](images/spaghetti.jpg)
+
+## Going to sleep
+
+- Get in bed
+- Count sheep
+```
+
 # Насколько это применимо в реальности
 
 - Хотите увидеть **по-настоящему** сложный документ в формате Pandoc -- откройте спецификацию Kotlin
@@ -81,6 +119,39 @@ void foo(int a) {...}
 - Хотите кастомный заголовок/хвостовик в конкретном формате -- есть для этого аргументы
 - Хотите сделать что-то ну совсем безумное?
     - ...
+
+# Pandoc: Yaml headers
+
+Можно сделать заголовок или отдельный файл в формате Yaml с настройками
+
+\tiny
+
+```yaml
+---
+title: The document title
+author:
+- name: Author One
+  affiliation: University of Somewhere
+- name: Author Two
+  affiliation: University of Nowhere
+...
+```
+
+\normalsize
+
+Эти переменные доступны из шаблона
+
+\tiny
+
+```
+$for(author)$
+$if(author.name)$
+$author.name$$if(author.affiliation)$ ($author.affiliation$)$endif$
+$else$
+$author$
+$endif$
+$endfor$
+```
 
 # Pandoc: фильтры
 
