@@ -22,9 +22,16 @@ date: \today
 
 # Pandoc: использование
 
+Конвертировать markdown-файл в PDF с помощью LaTeX (форматы автоматически выводятся из имён файлов)
+
 ```bash
 ~$ pandoc document.md -o file.pdf
-~$ pandoc text -f mediawiki -t pdf
+```
+
+Конвертировать файл text в формате mediawiki в DOCX
+
+```bash
+~$ pandoc text -f mediawiki -t docx
 ```
 
 # Pandoc Markdown
@@ -171,6 +178,24 @@ $endfor$
 - Фильтр -- это программа, которая берёт на вход документ, что-то с ним делает и выдаёт его на выход
 - Из коробки поддерживаются Haskell, Python и Lua
 - Фильтров может быть сколько угодно на один запуск
+
+# Pandoc: использование фильтра
+
+Конвертировать markdown-файл в PDF с помощью LaTeX через фильтр filter.py
+
+```bash
+~$ pandoc document.md -o file.pdf --filter filter.py
+```
+
+Для любителей разбираться в деталях: это работает ±вот так
+
+/tiny
+
+```bash
+~$ pandoc document.md -t json | filter.py tex | pandoc - -f json -t pdf
+```
+
+
 
 # Pandoc: что может сделать фильтр?
 
