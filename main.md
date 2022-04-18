@@ -20,6 +20,13 @@ date: \today
 \includegraphics[height=0.7\textheight]{PandocOverview.drawio}
 \end{center}
 
+# Pandoc: использование
+
+```bash
+~$ pandoc document.md -o file.pdf
+~$ pandoc text -f mediawiki -t pdf
+```
+
 # Pandoc Markdown
 
 - Pandoc поддерживает много разных языков на входе
@@ -67,6 +74,12 @@ void foo(int a) {...}
 % Habits
 % John Doe
 % March 22, 2005
+
+# Pandoc Markdown: что ещё можно делать
+
+- Можно вставлять некоторые команды \LaTeX прямо в текст и они работают
+- Как и куски чистого HTML
+- Всякие кавычки и тире преобразовываются автоматически
 
 # In the morning
 
@@ -181,3 +194,27 @@ $endfor$
 - Преобразование грамматики и вставка её в документ
 - Поиск TODO и обработка их в зависимости от флагов сборки
 - Вставка диаграмм (см. выше)
+
+# Pandoc: кроме фильтров
+
+Можно писать свои форматы ввода и вывода!
+
+- Правда, поддерживается только Lua
+
+```bash
+~$ pandoc -t data/sample.lua
+~$ pandoc -f my_custom_markup_language.lua -t latex -s
+``` 
+
+# Сегодня мы многое поняли
+
+- Система Pandoc позволяет преобразовывать документы из кучи разных форматов
+    - и презентации!
+- Всё это очень гибко настраивается
+- Любители писать программы могут обмазаться фильтрами и делать удивительные вещи
+
+# 
+
+- Документация по Pandoc: <https://pandoc.org/>
+- Эта презентация: <https://github.com/belyaev-mikhail/pandoc-lection>
+- Спека Котлина: <https://github.com/kotlin/kotlin-spec>
