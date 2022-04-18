@@ -189,7 +189,7 @@ $endfor$
 
 Для любителей разбираться в деталях: это работает ±вот так
 
-/tiny
+\scriptsize
 
 ```bash
 ~$ pandoc document.md -t json | filter.py tex | pandoc - -f json -t pdf
