@@ -11,7 +11,7 @@ images: $(eps_images) $(jpg_images) $(png_images)
 %.eps: %.svg
 	inkscape $*.svg -o $*.eps
 
-%.pdf: main.md ../shared/preamble.tex
+%.pdf: main.md
 	pandoc -t beamer+smart \
 		--pdf-engine=lualatex \
 		--pdf-engine-opt=-shell-escape \
@@ -26,6 +26,5 @@ images: $(eps_images) $(jpg_images) $(png_images)
 		-V shorttitle:"Static analysis 101" \
 		-V graphics \
 		-V graphicspath:../shared/fig \
-		--include-in-header=../shared/preamble.tex \
 		-s main.md -o $@
 	
